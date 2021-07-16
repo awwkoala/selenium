@@ -26,42 +26,48 @@ public class CheckboxesPage extends BasePage {
     checkboxes.get(i).click();
   }
 
-  public void clickFirstCheckbox() {
+  public CheckboxesPage clickFirstCheckbox() {
     clickCheckbox(0);
+    return this;
   }
 
-  public void clickSecondCheckbox() {
+  public CheckboxesPage clickSecondCheckbox() {
     clickCheckbox(1);
+    return this;
   }
 
   private boolean isCheckboxSelected(int i) {
     return checkboxes.get(i).isSelected();
   }
 
-  private void assertThatCheckboxSelected(int i) {
+  private void assertThatCheckboxIsSelected(int i) {
     Assertions.assertThat(isCheckboxSelected(i))
       .describedAs("checkbox %d is selected", i).isTrue();
   }
 
-  private void assertThatCheckboxNotSelected(int i) {
+  private void assertThatCheckboxIsNotSelected(int i) {
     Assertions.assertThat(isCheckboxSelected(i))
       .describedAs("checkbox %d is selected", i).isFalse();
   }
 
-  public void assertThatFirstCheckboxSelected() {
-    assertThatCheckboxSelected(0);
+  public CheckboxesPage assertThatFirstCheckboxIsSelected() {
+    assertThatCheckboxIsSelected(0);
+    return this;
   }
 
-  public void assertThatSecondCheckboxSelected() {
-    assertThatCheckboxSelected(1);
+  public CheckboxesPage assertThatSecondCheckboxIsSelected() {
+    assertThatCheckboxIsSelected(1);
+    return this;
   }
 
-  public void assertThatFirstCheckboxNotSelected() {
-    assertThatCheckboxNotSelected(0);
+  public CheckboxesPage assertThatFirstCheckboxIsNotSelected() {
+    assertThatCheckboxIsNotSelected(0);
+    return this;
   }
 
-  public void assertThatSecondCheckboxNotSelected() {
-    assertThatCheckboxNotSelected(1);
+  public CheckboxesPage assertThatSecondCheckboxIsNotSelected() {
+    assertThatCheckboxIsNotSelected(1);
+    return this;
   }
 
 }

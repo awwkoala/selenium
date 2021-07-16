@@ -21,14 +21,13 @@ public class CheckBoxesTests extends TestBase {
 
   @Test
   public void checkboxesTest() {
-    cbPage.assertThatFirstCheckboxNotSelected();
-    cbPage.assertThatSecondCheckboxSelected();
-
-    cbPage.clickFirstCheckbox();
-    cbPage.clickSecondCheckbox();
-
-    cbPage.assertThatFirstCheckboxSelected();
-    cbPage.assertThatSecondCheckboxNotSelected();
+    cbPage
+      .assertThatFirstCheckboxIsNotSelected()
+      .assertThatSecondCheckboxIsSelected()
+      .clickFirstCheckbox()
+      .clickSecondCheckbox()
+      .assertThatFirstCheckboxIsSelected()
+      .assertThatSecondCheckboxIsNotSelected();
   }
 
 }

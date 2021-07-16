@@ -10,7 +10,7 @@ public abstract class TestBase {
   protected WebDriver driver;
 
   @BeforeClass
-  public void getDriver() {
+  public void createChromeDriver() {
     driver = new WebDriverProvider().getChromeDriver();
   }
 
