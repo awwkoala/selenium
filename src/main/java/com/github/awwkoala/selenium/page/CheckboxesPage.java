@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CheckboxesPage extends Page {
+public class CheckboxesPage extends BasePage {
 
   @FindBy(css = "input[type='checkbox']")
   private List<WebElement> checkboxes;
@@ -16,44 +16,52 @@ public class CheckboxesPage extends Page {
     super(driver);
   }
 
-  public void goToCheckboxesPage() {
+  @Override
+  public void goTo() {
     driver.get("http://theinternet.przyklady.javastart.pl/checkboxes");
   }
 
-  public void clickCheckbox1() {
-    checkboxes.get(0).click();
+  private void clickCheckbox(int i) {
+    waitUtils.waitUntilClickable(checkboxes.get(i));
+    checkboxes.get(i).click();
   }
 
-  public void clickCheckbox2() {
-    checkboxes.get(1).click();
+  public void clickFirstCheckbox() {
+    clickCheckbox(0);
   }
 
-  public boolean isCheckbox1Selected() {
-    return checkboxes.get(0).isSelected();
+  public void clickSecondCheckbox() {
+    clickCheckbox(1);
   }
 
-  public boolean isCheckbox2Selected() {
-    return checkboxes.get(1).isSelected();
+  private boolean isCheckboxSelected(int i) {
+    return checkboxes.get(i).isSelected();
   }
 
-  public void assertThatCheckbox1Selected() {
-    Assertions.assertThat(isCheckbox1Selected())
-      .describedAs("checkbox 1 is selected").isTrue();
+  private void assertThatCheckboxSelected(int i) {
+    Assertions.assertThat(isCheckboxSelected(i))
+      .describedAs("checkbox %d is selected", i).isTrue();
   }
 
-  public void assertThatCheckbox2Selected() {
-    Assertions.assertThat(isCheckbox2Selected())
-      .describedAs("checkbox 2 is selected").isTrue();
+  private void assertThatCheckboxNotSelected(int i) {
+    Assertions.assertThat(isCheckboxSelected(i))
+      .describedAs("checkbox %d is selected", i).isFalse();
   }
 
-  public void assertThatCheckbox1NotSelected() {
-    Assertions.assertThat(isCheckbox1Selected())
-      .describedAs("checkbox 1 is not selected").isFalse();
+  public void assertThatFirstCheckboxSelected() {
+    assertThatCheckboxSelected(0);
   }
 
-  public void assertThatCheckbox2NotSelected() {
-    Assertions.assertThat(isCheckbox2Selected())
-      .describedAs("checkbox 2 is not selected").isFalse();
+  public void assertThatSecondCheckboxSelected() {
+    assertThatCheckboxSelected(1);
+  }
+
+  public void assertThatFirstCheckboxNotSelected() {
+    assertThatCheckboxNotSelected(0);
+  }
+
+  public void assertThatSecondCheckboxNotSelected() {
+    assertThatCheckboxNotSelected(1);
   }
 
 }

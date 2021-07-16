@@ -16,19 +16,19 @@ public class CheckBoxesTests extends TestBase {
   @BeforeClass
   public void prepareTest() {
     cbPage = new CheckboxesPage(driver);
-    cbPage.goToCheckboxesPage();
+    cbPage.goTo();
   }
 
   @Test
   public void checkboxesTest() {
-    cbPage.assertThatCheckbox1NotSelected();
-    cbPage.assertThatCheckbox2Selected();
+    cbPage.assertThatFirstCheckboxNotSelected();
+    cbPage.assertThatSecondCheckboxSelected();
 
-    cbPage.clickCheckbox1();
-    cbPage.clickCheckbox2();
+    cbPage.clickFirstCheckbox();
+    cbPage.clickSecondCheckbox();
 
-    cbPage.assertThatCheckbox1Selected();
-    cbPage.assertThatCheckbox2NotSelected();
+    cbPage.assertThatFirstCheckboxSelected();
+    cbPage.assertThatSecondCheckboxNotSelected();
   }
 
 }
