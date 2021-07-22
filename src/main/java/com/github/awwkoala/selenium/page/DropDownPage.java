@@ -26,45 +26,43 @@ public class DropDownPage extends BasePage {
     driver.get("http://theinternet.przyklady.javastart.pl/dropdown");
   }
 
-  private void selectOption(int i) {
+  private DropDownPage selectOption(String expectedText) {
     Select dropdownSelect = new Select(dropdown);
-    waitUtils.waitUntilVisible(dropdown);
+    waitUtils.waitUntilIsVisible(dropdown);
     dropdown.click();
-    dropdownSelect.selectByIndex(i);
+    dropdownSelect.selectByVisibleText(expectedText);
+    return this;
   }
 
   public DropDownPage selectFirstOption() {
-    selectOption(1);
-    return this;
+    return selectOption("Option 1");
   }
 
   public DropDownPage selectSecondOption() {
-    selectOption(2);
+    return selectOption("Option 2");
+  }
+
+  private String getSelectedOptionText() {
+    Select dropdownSelect = new Select(dropdown);
+    return dropdownSelect.getFirstSelectedOption().getText();
+  }
+
+  private DropDownPage assertThatOptionIsSelected(String expectedText) {
+    Assertions.assertThat(getSelectedOptionText())
+      .describedAs("option %s is selected", expectedText).isEqualTo(expectedText);
     return this;
-  }
-
-  private boolean isOptionSelected(int i) {
-    dropdown.click();
-    return options.get(i).isSelected();
-  }
-
-  private void assertThatOptionIsSelected(int i) {
-    Assertions.assertThat(isOptionSelected(i)).describedAs("option %d is selected", i).isTrue();
   }
 
   public DropDownPage assertThatDefaultOptionIsSelected() {
-    assertThatOptionIsSelected(0);
-    return this;
+    return assertThatOptionIsSelected("Please select an option");
   }
 
   public DropDownPage assertThatFirstOptionIsSelected() {
-    assertThatOptionIsSelected(1);
-    return this;
+    return assertThatOptionIsSelected("Option 1");
   }
 
   public DropDownPage assertThatSecondOptionIsSelected() {
-    assertThatOptionIsSelected(2);
-    return this;
+    return assertThatOptionIsSelected("Option 2");
   }
 
 }

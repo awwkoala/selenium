@@ -22,7 +22,7 @@ public class DropDownTests extends TestBase {
   }
 
   @Test
-  public void dropDownTest() {
+  public void verifyAllOptionsFromDropdown() {
     ddPage
       .assertThatDefaultOptionIsSelected()
       .selectFirstOption()
