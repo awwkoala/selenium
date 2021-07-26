@@ -25,6 +25,7 @@ public class DropDownTests extends TestBase {
   public void verifyAllOptionsFromDropdown() {
     ddPage
       .assertThatOptionIsSelected("")
+      .assertThatSelectedOptionHasText("Please select an option")
       .selectFirstOption()
       .assertThatOptionIsSelected("1")
       .selectSecondOption()

@@ -47,6 +47,17 @@ public class DropDownPage extends BasePage {
     return dropdownSelect.getFirstSelectedOption().getAttribute("value");
   }
 
+  private String getSelectedOptionText() {
+    Select dropdownSelect = new Select(dropdown);
+    return dropdownSelect.getFirstSelectedOption().getText();
+  }
+
+  public DropDownPage assertThatSelectedOptionHasText(String expectedText) {
+    Assertions.assertThat(getSelectedOptionText())
+      .describedAs("option %s is selected", expectedText).isEqualTo(expectedText);
+    return this;
+  }
+
   public DropDownPage assertThatOptionIsSelected(String expectedValue) {
     Assertions.assertThat(getSelectedOptionValue())
       .describedAs("option %s is selected", expectedValue).isEqualTo(expectedValue);
