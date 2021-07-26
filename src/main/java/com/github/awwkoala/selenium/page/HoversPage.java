@@ -45,19 +45,19 @@ public class HoversPage extends BasePage {
     return mouseHoverElement(2);
   }
 
-  private boolean captionDisplayed(String expectedText) {
+  private boolean isCaptionDisplayed(String expectedText) {
     return captions.stream()
       .map(webElement -> webElement.getText())
       .anyMatch(actualText -> expectedText.equals(actualText));
   }
 
   public HoversPage assertThatCaptionIsDisplayed(String text) {
-    Assertions.assertThat(captionDisplayed(text)).describedAs("Caption %s is displayed", text).isTrue();
+    Assertions.assertThat(isCaptionDisplayed(text)).describedAs("Caption %s is displayed", text).isTrue();
     return this;
   }
 
   public HoversPage assertThatCaptionIsNotDisplayed(String text) {
-    Assertions.assertThat(captionDisplayed(text)).describedAs("Caption %s is not displayed", text).isFalse();
+    Assertions.assertThat(isCaptionDisplayed(text)).describedAs("Caption %s is not displayed", text).isFalse();
     return this;
   }
 
