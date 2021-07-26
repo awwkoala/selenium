@@ -18,7 +18,9 @@ Framework is using Maven 3 and TestNG 7.
 ## Setup
 
 To run this project, install it locally using technologies listed above.
-In the `WebDriver.properties` file you need to change the path to the one to the `chromedriver` file on your computer.
+For tests to run properly you need to either: 
+* in the `WebDriver.properties` file, change the path to the one to the `chromedriver` file on your computer.
+* put your `chromedriver` file in the `drivers` package inside the project.
 
 ## How to run all tests using maven?
 
