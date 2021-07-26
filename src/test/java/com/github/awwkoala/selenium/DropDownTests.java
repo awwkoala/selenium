@@ -24,11 +24,11 @@ public class DropDownTests extends TestBase {
   @Test
   public void verifyAllOptionsFromDropdown() {
     ddPage
-      .assertThatDefaultOptionIsSelected()
+      .assertThatOptionIsSelected("")
       .selectFirstOption()
-      .assertThatFirstOptionIsSelected()
+      .assertThatOptionIsSelected("1")
       .selectSecondOption()
-      .assertThatSecondOptionIsSelected();
+      .assertThatOptionIsSelected("2");
   }
 
 }
