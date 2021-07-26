@@ -22,11 +22,13 @@ public class FileUploadTests extends TestBase {
   }
 
   @Test
-  public void verifyUploadFileWorksCorrectly() {
+  public void verifyUploadingTestFileTxtWorksCorrectly() {
+    String filename = "testfile.txt";
+
     fuPage
-      .chooseFileToUpload()
+      .chooseFileToUpload(filename)
       .clickUpload()
-      .assertThatDisplayedFilenameIsTestfileTxt();
+      .assertThatDisplayedFilenameIsCorrect(filename);
   }
 
 }
