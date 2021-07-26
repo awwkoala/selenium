@@ -6,7 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class WebDriverProvider {
 
   public WebDriver getChromeDriver() {
-    System.setProperty("webdriver.chrome.driver", "/opt/WebDriver/bin/chromedriver");
+    WebDriverProperties properties = PropertiesProvider.getProperties(WebDriverProperties.class);
+    System.setProperty("webdriver.chrome.driver", properties.webDriverPath());
     return new ChromeDriver();
   }
 

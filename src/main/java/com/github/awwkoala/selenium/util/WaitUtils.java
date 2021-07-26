@@ -17,4 +17,8 @@ public class WaitUtils {
     wait.until(ExpectedConditions.elementToBeClickable(webElement));
   }
 
+  public void waitUntilIsVisible(WebElement webElement) {
+    wait.until(ExpectedConditions.visibilityOf(webElement));
+  }
+
 }
