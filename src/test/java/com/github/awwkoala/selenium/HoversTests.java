@@ -1,6 +1,5 @@
 package com.github.awwkoala.selenium;
 
-import com.github.awwkoala.selenium.page.CheckboxesPage;
 import com.github.awwkoala.selenium.page.HoversPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -23,19 +22,23 @@ public class HoversTests extends TestBase {
 
   @Test
   public void verifyMouseHoverUsersPictures() {
+    String user1 = "name: user1";
+    String user2 = "name: user2";
+    String user3 = "name: user3";
+
     hPage
       .mouseHoverFirstPicture()
-      .assertThatCaptionUserOneIsDisplayed()
-      .assertThatCaptionUserTwoIsNotDisplayed()
-      .assertThatCaptionUserThreeIsNotDisplayed()
+      .assertThatCaptionIsDisplayed(user1)
+      .assertThatCaptionIsNotDisplayed(user2)
+      .assertThatCaptionIsNotDisplayed(user3)
       .mouseHoverSecondPicture()
-      .assertThatCaptionUserTwoIsDisplayed()
-      .assertThatCaptionUserOneIsNotDisplayed()
-      .assertThatCaptionUserThreeIsNotDisplayed()
+      .assertThatCaptionIsDisplayed(user2)
+      .assertThatCaptionIsNotDisplayed(user1)
+      .assertThatCaptionIsNotDisplayed(user3)
       .mouseHoverThirdPicture()
-      .assertThatCaptionUserThreeIsDisplayed()
-      .assertThatCaptionUserTwoIsNotDisplayed()
-      .assertThatCaptionUserOneIsNotDisplayed();
+      .assertThatCaptionIsDisplayed(user3)
+      .assertThatCaptionIsNotDisplayed(user1)
+      .assertThatCaptionIsNotDisplayed(user2);
   }
 
 }

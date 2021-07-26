@@ -15,7 +15,7 @@ public class HoversPage extends BasePage {
   @FindBy(css = ".figure")
   private List<WebElement> pictures;
 
-  @FindBy(css=".figcaption h5")
+  @FindBy(css = ".figcaption h5")
   private List<WebElement> captions;
 
   public HoversPage(WebDriver driver) {
@@ -51,38 +51,14 @@ public class HoversPage extends BasePage {
       .anyMatch(actualText -> expectedText.equals(actualText));
   }
 
-  private HoversPage assertThatCaptionIsDisplayed(String text) {
+  public HoversPage assertThatCaptionIsDisplayed(String text) {
     Assertions.assertThat(captionDisplayed(text)).describedAs("Caption %s is displayed", text).isTrue();
     return this;
   }
 
-  private HoversPage assertThatCaptionIsNotDisplayed(String text) {
+  public HoversPage assertThatCaptionIsNotDisplayed(String text) {
     Assertions.assertThat(captionDisplayed(text)).describedAs("Caption %s is not displayed", text).isFalse();
     return this;
-  }
-
-  public HoversPage assertThatCaptionUserOneIsDisplayed() {
-    return assertThatCaptionIsDisplayed("name: user1");
-  }
-
-  public HoversPage assertThatCaptionUserTwoIsDisplayed() {
-    return assertThatCaptionIsDisplayed("name: user2");
-  }
-
-  public HoversPage assertThatCaptionUserThreeIsDisplayed() {
-    return assertThatCaptionIsDisplayed("name: user3");
-  }
-
-  public HoversPage assertThatCaptionUserOneIsNotDisplayed() {
-    return assertThatCaptionIsNotDisplayed("name: user1");
-  }
-
-  public HoversPage assertThatCaptionUserTwoIsNotDisplayed() {
-    return assertThatCaptionIsNotDisplayed("name: user2");
-  }
-
-  public HoversPage assertThatCaptionUserThreeIsNotDisplayed() {
-    return assertThatCaptionIsNotDisplayed("name: user3");
   }
 
 }
