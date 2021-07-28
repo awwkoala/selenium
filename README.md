@@ -4,7 +4,10 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [How to run all tests using maven?](#how-to-run-all-tests-using-maven)
+* [How to run all tests one by one using maven?](#how-to-run-all-tests-using-maven)
+* [How to run all tests parallel using maven?](#how-to-run-all-tests-parallel-using-maven)
+* [How to run a single test suite using maven?](#how-to-run-a-single-test-suite-using-maven)
+* [How to run a single test class using maven?](#how-to-run-a-single-test-class-using-maven)
 
 ## General info
 
@@ -22,9 +25,17 @@ For tests to run properly you need to either:
 * in the `WebDriver.properties` file, change the path to the one to the `chromedriver` file on your computer.
 * put your `chromedriver` file in the `drivers` package inside the project.
 
-## How to run all tests using maven?
+## How to run all tests one by one using maven?
 
 Run following maven command: `mvn test`.
+
+## How to run all tests parallel using maven?
+
+Run following maven command: `mvn test -DsuiteXmlFile=SeleniumParallelTestSuite.xml`.
+
+## How to run a single test suite using maven?
+
+Run following maven command: `mvn test -DsuiteXmlFile=TestSuiteName.xml`.
 
 ## How to run a single test class using maven?
 
