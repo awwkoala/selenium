@@ -23,7 +23,7 @@ public class HiddenElementPage extends BasePage {
   }
 
   public HiddenElementPage clickStartButton() {
-    waitUtils.waitUntilClickable(startBtn);
+    waitUtils.waitUntilIsClickable(startBtn);
     startBtn.click();
     return this;
   }

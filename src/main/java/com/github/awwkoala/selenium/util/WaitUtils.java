@@ -13,16 +13,19 @@ public class WaitUtils {
 
   private final WebDriverWait wait;
   private final FluentWait<WebDriver> fluentWait;
+  private final int timeOutInSec = 5;
+  private final int durationInSec = 30;
+  private final int durationInMil = 100;
 
   public WaitUtils(WebDriver driver) {
-    wait = new WebDriverWait(driver, 5);
+    wait = new WebDriverWait(driver, timeOutInSec);
     fluentWait = new FluentWait<>(driver)
-      .withTimeout(Duration.ofSeconds(30))
-      .pollingEvery(Duration.ofMillis(100))
+      .withTimeout(Duration.ofSeconds(durationInSec))
+      .pollingEvery(Duration.ofMillis(durationInMil))
       .ignoring(NoSuchElementException.class);
   }
 
-  public void waitUntilClickable(WebElement webElement) {
+  public void waitUntilIsClickable(WebElement webElement) {
     wait.until(ExpectedConditions.elementToBeClickable(webElement));
   }
 

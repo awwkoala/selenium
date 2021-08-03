@@ -22,7 +22,7 @@ public class WaitForElementPage extends BasePage {
   }
 
   public WaitForElementPage clickButton() {
-    waitUtils.waitUntilClickable(startBtn);
+    waitUtils.waitUntilIsClickable(startBtn);
     startBtn.click();
     return this;
   }

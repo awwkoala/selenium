@@ -20,7 +20,7 @@ public class WaitForElementTests extends TestBase {
   }
 
   @Test
-  public void test() {
+  public void verifyThatHelloTextIsVisibleAfterLoading() {
     wfePage
       .clickButton()
       .waitUntilHelloTextIsDisplayed();

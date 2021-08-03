@@ -30,13 +30,13 @@ public class FileUploadPage extends BasePage {
 
   public FileUploadPage chooseFileToUpload(String filename) {
     String absolutePath = PathUtils.getPathFromResources(Paths.get(filename)).toAbsolutePath().toString();
-    waitUtils.waitUntilClickable(chooseFileBtn);
+    waitUtils.waitUntilIsClickable(chooseFileBtn);
     chooseFileBtn.sendKeys(absolutePath);
     return this;
   }
 
   public FileUploadPage clickUpload() {
-    waitUtils.waitUntilClickable(submitFileBtn);
+    waitUtils.waitUntilIsClickable(submitFileBtn);
     submitFileBtn.click();
     return this;
   }
