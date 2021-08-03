@@ -1,7 +1,6 @@
 package com.github.awwkoala.selenium.page;
 
 import org.assertj.core.api.Assertions;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,12 +26,7 @@ public class DynamicControlsPage extends BasePage {
   }
 
   private boolean isCheckboxVisible() {
-    try {
-      waitUtils.waitUntilIsVisible(checkbox);
-      return checkbox.isDisplayed();
-    } catch (TimeoutException e) {
-      return false;
-    }
+    return webElementsUtils.isElementVisible(checkbox);
   }
 
   private boolean isCheckboxSelected() {
