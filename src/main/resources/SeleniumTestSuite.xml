@@ -1,0 +1,35 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Tests suite">
+
+  <test name="DropDownTests">
+    <classes>
+      <class name="com.github.awwkoala.selenium.DropDownTests"/>
+    </classes>
+  </test>
+
+  <test name="CheckBoxesTests">
+    <classes>
+      <class name="com.github.awwkoala.selenium.CheckBoxesTests"/>
+    </classes>
+  </test>
+
+  <test name="FileUploadTests">
+    <classes>
+      <class name="com.github.awwkoala.selenium.FileUploadTests"/>
+    </classes>
+  </test>
+
+  <test name="HoversTests">
+    <classes>
+      <class name="com.github.awwkoala.selenium.HoversTests"/>
+    </classes>
+  </test>
+
+  <test name="DynamicControlsTests">
+    <classes>
+      <class name="com.github.awwkoala.selenium.DynamicControlsTests"/>
+    </classes>
+  </test>
+
+</suite>
