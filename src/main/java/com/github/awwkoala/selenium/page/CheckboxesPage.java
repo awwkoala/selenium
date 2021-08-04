@@ -22,7 +22,7 @@ public class CheckboxesPage extends BasePage {
   }
 
   private void clickCheckbox(int i) {
-    waitUtils.waitUntilClickable(checkboxes.get(i));
+    waitUtils.waitUntilIsClickable(checkboxes.get(i));
     checkboxes.get(i).click();
   }
 
