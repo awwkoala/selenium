@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class DynamicControlsTests extends TestBase {
 
-  private DynamicControlsPage dcPage;
+  private DynamicControlsPage dynamicControlsPage;
 /*  Stwórz test automatyczny na podstawie poniższego scenariusza testowego:
   Przejdź na stronę dynamic controls
   Sprawdź, że po wejściu na stronę checkbox jest odznaczony oraz widoczny
@@ -26,15 +26,15 @@ public class DynamicControlsTests extends TestBase {
 
   @BeforeMethod
   public void prepareTest() {
-    dcPage = new DynamicControlsPage(driver);
-    dcPage.goTo();
+    dynamicControlsPage = new DynamicControlsPage(driver);
+    dynamicControlsPage.goTo();
   }
 
   @Test
   public void verifyThatCheckboxDisappears() {
     String expectedMessage = "It's gone!";
 
-    dcPage
+    dynamicControlsPage
       .assertThatCheckboxIsVisible()
       .assertThatCheckboxIsNotSelected()
       .clickButton()
@@ -45,7 +45,7 @@ public class DynamicControlsTests extends TestBase {
   public void verifyThatCheckboxDisappearsAndAppears() {
     String expectedMessage = "It's gone!";
 
-    dcPage
+    dynamicControlsPage
       .assertThatCheckboxIsVisible()
       .assertThatCheckboxIsNotSelected()
       .clickButton()

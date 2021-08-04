@@ -46,7 +46,7 @@ public class DynamicControlsPage extends BasePage {
   }
 
   public DynamicControlsPage assertThatCheckboxIsNotSelected() {
-    Assertions.assertThat(isCheckboxSelected()).describedAs("checkbox is selected").isFalse();
+    Assertions.assertThat(isCheckboxSelected()).describedAs("checkbox is not selected").isFalse();
     return this;
   }
 
