@@ -13,15 +13,15 @@ public class WaitUtils {
 
   private final WebDriverWait wait;
   private final FluentWait<WebDriver> fluentWait;
-  private final int timeOutInSec = 5;
-  private final int durationInSec = 30;
-  private final int durationInMil = 100;
+  private final int timeOutInSeconds = 5;
+  private final int timeOutDurationInSeconds = 30;
+  private final int timeOutDurationInMilliseconds = 100;
 
   public WaitUtils(WebDriver driver) {
-    wait = new WebDriverWait(driver, timeOutInSec);
+    wait = new WebDriverWait(driver, timeOutInSeconds);
     fluentWait = new FluentWait<>(driver)
-      .withTimeout(Duration.ofSeconds(durationInSec))
-      .pollingEvery(Duration.ofMillis(durationInMil))
+      .withTimeout(Duration.ofSeconds(timeOutDurationInSeconds))
+      .pollingEvery(Duration.ofMillis(timeOutDurationInMilliseconds))
       .ignoring(NoSuchElementException.class);
   }
 
